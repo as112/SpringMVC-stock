@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Товары</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>По вашему запросу найдено:</h1><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Название</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Остаток</th>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:text="${product.productId}"></td>
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.category.getCategoryName()}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${balance}"></td>
+        </tbody>
+    </table>
+    <form action="http://localhost:8081/buy" method="post">
+        <p>Категория</p>
+        <input th:value="${product.category.getCategoryName()}" name="categoryName"><br>
+        <p>Название</p>
+        <input th:value="${product.description}" name="description"><br>
+        <p>Сколько надо</p>
+        <input th:value="${count}" name="count"><br><br>
+        <button class="btn btn-warning" type="submit">Заказать</button>
+    </form><br>
+<!--    <a href="http://localhost:8081/buy" class="btn btn-success">Купить</a><br>-->
+</div>
+</body>
+</html>
