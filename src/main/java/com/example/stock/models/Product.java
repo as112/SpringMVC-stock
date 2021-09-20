@@ -22,7 +22,7 @@ public class Product {
     private int balance;
 
     @OneToMany(mappedBy ="product", cascade = CascadeType.ALL)
-    private List<Purshase> purshase = new ArrayList<>();
+    private List<Purchase> purchase = new ArrayList<>();
 
     public Long getProductId() {
         return productId;
@@ -56,8 +56,8 @@ public class Product {
         this.price = price;
     }
 
-    public List<Purshase> getPurshase() {
-        return purshase;
+    public List<Purchase> getPurchase() {
+        return purchase;
     }
 
     public int getBalance() {
@@ -68,8 +68,8 @@ public class Product {
         this.balance = balance;
     }
 
-    public void setPurshase(List<Purshase> purshase) {
-        this.purshase = purshase;
+    public void setPurchase(List<Purchase> purchase) {
+        this.purchase = purchase;
     }
 
     public Product() {
